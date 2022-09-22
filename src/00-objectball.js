@@ -106,11 +106,27 @@ return newObject
 //     for (key in object)
 // }
 
-const newObject = gameObject()
+const homeTeam = gameObject().home
+const awayTeam = gameObject().away
+const allPlayers = {...homeTeam.players, ...awayTeam.players}
+
 
 function numPointsScored (playerName) {
-    return newObject.players[playerName].points
+    for (let index in allPlayers) {
+        if (index === playerName){
+            return allPlayers[playerName].points;
+        } 
+    }
 }
 
-numPointsScored("Alan Anderson")
+function shoeSize (playerName) {
+    for (let index in allPlayers) {
+        if (index === playerName){
+            return allPlayers[playerName].shoe;
+        } 
+    }
+}
 
+console.log(numPointsScored("Ben Gordon"))
+
+console.log(shoeSize("Ben Gordon"))
