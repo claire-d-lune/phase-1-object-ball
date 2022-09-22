@@ -127,6 +127,29 @@ function shoeSize (playerName) {
     }
 }
 
+function teamColors(name) {
+    return homeTeam.teamName === name ? homeTeam.colors : awayTeam.colors
+}
+
+function teamNames(){
+    return [homeTeam.name, awayTeam.name]
+}
+
+function playerNumbers(teamTitle) {
+    let teamPlayers = (homeTeam.teamName === teamTitle ? homeTeam.players : awayTeam.players)
+    let result = []
+    for (let x in teamPlayers) {
+        result.push(teamPlayers[x].number)
+    }
+    return result;
+}
+
+
+
 console.log(numPointsScored("Ben Gordon"))
 
 console.log(shoeSize("Ben Gordon"))
+
+console.log(teamColors("Brooklyn Nets"))
+
+console.log(playerNumbers("Brooklyn Nets"))
