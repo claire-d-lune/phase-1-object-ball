@@ -144,6 +144,11 @@ function playerNumbers(teamTitle) {
     return result;
 }
 
+function playerStats(name) {
+    return allPlayers[name];
+}
+
+
 
 
 console.log(numPointsScored("Ben Gordon"))
@@ -153,3 +158,25 @@ console.log(shoeSize("Ben Gordon"))
 console.log(teamColors("Brooklyn Nets"))
 
 console.log(playerNumbers("Brooklyn Nets"))
+
+function findBiggestShoe() {
+    let bigPlayer = {shoe : 0, player : null};
+    for (let x in allPlayers) {
+        if (allPlayers[x].shoe > bigPlayer.shoe){
+            bigPlayer.shoe = allPlayers[x].shoe
+            bigPlayer.player = x
+        }
+    }
+    return bigPlayer;
+}
+
+function bigShoeFunctions(){
+    return allPlayers[findBiggestShoe().player].rebounds   
+}
+
+
+
+console.log(findBiggestShoe())
+
+console.log(bigShoeFunctions())
+
